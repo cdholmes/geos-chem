@@ -41,6 +41,8 @@ MODULE Input_Opt_Mod
      INTEGER                     :: MPIComm   ! MPI Communicator Handle
      LOGICAL                     :: isMPI     ! Is this an MPI sim?
      LOGICAL                     :: amIRoot   ! Is this the root cpu?
+     LOGICAL                     :: DryRun    ! Is this a dry run
+                                              !  (i.e. file check only)?
 
      !----------------------------------------
      ! SIZE PARAMETER fields
@@ -501,11 +503,12 @@ CONTAINS
     !----------------------------------------
     ! General Runtime & Distributed Comp Info
     !----------------------------------------
-    Input_Opt%amIRoot                = .false.
-    Input_Opt%isMPI                  = .false.
-    Input_Opt%numCPUs                = 1
+    Input_Opt%amIRoot                = .FALSE.
+    Input_Opt%isMPI                  = .FALSE.
+    Input_Opt%numCPUs                =  1
     Input_Opt%thisCPU                = -1
     Input_Opt%MPIComm                = -1
+    Input_Opt%DryRun                 = .FALSE. ! Assume real run, not dry run
 
     !----------------------------------------
     ! SIZE PARAMETER fields
@@ -563,7 +566,6 @@ CONTAINS
     !----------------------------------------
     ! PASSIVE SPECIES MENU fields
     !----------------------------------------
-
     ALLOCATE( Input_Opt%PASSIVE_NAME    ( Input_Opt%Max_PassiveSpc ), STAT=RC )
     ALLOCATE( Input_Opt%PASSIVE_LONGNAME( Input_Opt%Max_PassiveSpc ), STAT=RC )
     ALLOCATE( Input_Opt%PASSIVE_ID      ( Input_Opt%Max_PassiveSpc ), STAT=RC )
@@ -671,9 +673,9 @@ CONTAINS
     !----------------------------------------
     Input_Opt%LCHEM                  = .FALSE.
     Input_Opt%LSCHEM                 = .FALSE.
-    Input_Opt%LLINOZ                 = .FALSE. 
+    Input_Opt%LLINOZ                 = .FALSE.
     Input_Opt%LSYNOZ                 = .FALSE.
-#if defined( MODEL_GEOS ) 
+#if defined( MODEL_GEOS )
     Input_Opt%LGMIOZ                 = .FALSE.
 #endif
     Input_Opt%TS_CHEM                = 0
