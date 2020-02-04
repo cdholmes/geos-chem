@@ -209,6 +209,7 @@ H          = IGNORE; {H; Atomic hydrogen}
 H1211      = IGNORE; {CBrClF2; H-1211}
 H1301      = IGNORE; {CBrF3; H-1301}
 H2402      = IGNORE; {C2Br2F4; H-2402}
+H2         = IGNORE; {H2; Molecular hydrogen}
 H2O        = IGNORE; {H2O; Water vapor}
 H2O2       = IGNORE; {H2O2; Hydrogen peroxide}
 HAC        = IGNORE; {HOCH2C(O)CH3; Hydroxyacetone}
@@ -378,7 +379,6 @@ XRO2       = IGNORE; {Peroxy radical from XYLE oxidation}
 
 #DEFFIX
 
-H2         = IGNORE; {H2; Molecular hydrogen}
 MNO3       = IGNORE; {CH3ONO2; Methylnitrate}
 MOH        = IGNORE; {CH3OH; Methanol}
 N2         = IGNORE; {N2; Molecular nitrogen}
