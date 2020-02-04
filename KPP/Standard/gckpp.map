@@ -13,7 +13,7 @@
 !        R. Sander, Max-Planck Institute for Chemistry, Mainz, Germany
 ! 
 ! File                 : gckpp.map
-! Time                 : Tue Feb  4 17:42:21 2020
+! Time                 : Tue Feb  4 17:46:37 2020
 ! Working directory    : /net/home_stu/cdholmes/gc-12.6.1/KPP/Standard
 ! Equation file        : gckpp.kpp
 ! Output root filename : gckpp
@@ -49,10 +49,10 @@ REORDER  - ON
 ### Species -------------------------------------------
 
 Variable species
-  1 = CH2I2 (r)  81 = CH2Br2 (r)161 = MVKN (r)  
-  2 = CH2ICl (r) 82 = CH2Cl2 (r)162 = PRN1 (r)  
-  3 = CH2IBr (r) 83 = HCFC123 (r)163 = MONITU (r)
-  4 = NITs (r)   84 = HCFC141b (r)164 = MGLOO (r) 
+  1 = CH2I2 (r)  81 = CH2Br2 (r)161 = PRN1 (r)  
+  2 = CH2ICl (r) 82 = CH2Cl2 (r)162 = MONITU (r)
+  3 = CH2IBr (r) 83 = HCFC123 (r)163 = MGLOO (r) 
+  4 = NITs (r)   84 = HCFC141b (r)164 = H (r)     
   5 = NIT (r)    85 = IONO (r)  165 = A3O2 (r)  
   6 = AERI (n)   86 = HCFC142b (r)166 = PROPNN (r)
   7 = CO2 (n)    87 = OIO (r)   167 = ISNOOA (r)
@@ -89,19 +89,19 @@ Variable species
  38 = PH2O2 (n) 118 = Br2 (r)   198 = CH2OO (r) 
  39 = I2O4 (r)  119 = MOBA (r)  199 = ISN1 (r)  
  40 = DHDN (r)  120 = HONIT (r) 200 = ClNO3 (r) 
- 41 = DHDC (r)  121 = DHMOB (r) 201 = H2 (r)    
+ 41 = DHDC (r)  121 = DHMOB (r) 201 = GLYC (r)  
  42 = I2O2 (r)  122 = IAP (r)   202 = MGLY (r)  
  43 = MONITA (r)123 = RIPB (r)  203 = ACET (r)  
  44 = BENZ (r)  124 = ISNP (r)  204 = HC5 (r)   
- 45 = CH3CCl3 (r)125 = MP (r)    205 = GLYC (r)  
+ 45 = CH3CCl3 (r)125 = MP (r)    205 = H2 (r)    
  46 = H1301 (r) 126 = BrSALA (r)206 = ETO2 (r)  
  47 = H2402 (r) 127 = BrSALC (r)207 = RIO2 (r)  
  48 = I2O3 (r)  128 = MAOP (r)  208 = MRO2 (r)  
  49 = PMNN (r)  129 = MRP (r)   209 = BrO (r)   
- 50 = PPN (r)   130 = RIPA (r)  210 = INO2 (r)  
- 51 = TOLU (r)  131 = RIPD (r)  211 = R4O2 (r)  
- 52 = BrNO2 (r) 132 = EOH (r)   212 = HAC (r)   
- 53 = CCl4 (r)  133 = ETHLN (r) 213 = R4N2 (r)  
+ 50 = PPN (r)   130 = RIPA (r)  210 = R4O2 (r)  
+ 51 = TOLU (r)  131 = RIPD (r)  211 = HAC (r)   
+ 52 = BrNO2 (r) 132 = EOH (r)   212 = R4N2 (r)  
+ 53 = CCl4 (r)  133 = ETHLN (r) 213 = INO2 (r)  
  54 = CFC11 (r) 134 = N2O5 (r)  214 = PRPE (r)  
  55 = CFC12 (r) 135 = INPN (r)  215 = RCHO (r)  
  56 = CFC113 (r)136 = MTPA (r)  216 = MEK (r)   
@@ -115,20 +115,20 @@ Variable species
  64 = N2O (r)   144 = LIMO (r)  224 = MO2 (r)   
  65 = TRO2 (r)  145 = MACRNO2 (r)225 = Br (r)    
  66 = BRO2 (r)  146 = BrNO3 (r) 226 = O1D (r)   
- 67 = IEPOXA (r)147 = ROH (r)   227 = NO (r)    
+ 67 = IEPOXA (r)147 = ROH (r)   227 = NO2 (r)   
  68 = IEPOXB (r)148 = Cl2 (r)   228 = H2O (r)   
  69 = IONITA (r)149 = MONITS (r)229 = O3 (r)    
  70 = N (r)     150 = I2 (r)    230 = NO3 (r)   
- 71 = OCS (r)   151 = ISOPNB (r)231 = HBr (r)   
+ 71 = OCS (r)   151 = ISOPNB (r)231 = HO2 (r)   
  72 = XRO2 (r)  152 = ISNOHOO (r)232 = ClO (r)   
  73 = HI (r)    153 = CH4 (r)   233 = HCl (r)   
- 74 = MAP (r)   154 = MVKOO (r) 234 = HO2 (r)   
- 75 = ICl (r)   155 = ISNOOB (r)235 = OH (r)    
+ 74 = MAP (r)   154 = MVKOO (r) 234 = OH (r)    
+ 75 = ICl (r)   155 = ISNOOB (r)235 = HBr (r)   
  76 = IMAO3 (r) 156 = GAOO (r)  236 = O (r)     
- 77 = MPN (r)   157 = CH3CHOO (r)237 = NO2 (r)   
+ 77 = MPN (r)   157 = CH3CHOO (r)237 = NO (r)    
  78 = CHBr3 (r) 158 = IEPOXOO (r)238 = Cl (r)    
- 79 = CHCl3 (r) 159 = H (r)     
- 80 = Cl2O2 (r) 160 = MGLYOO (r)
+ 79 = CHCl3 (r) 159 = MGLYOO (r)
+ 80 = Cl2O2 (r) 160 = MVKN (r)  
 
 Fixed species
   1 = MOH (r)     3 = O2 (r)    

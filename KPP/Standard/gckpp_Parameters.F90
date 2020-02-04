@@ -13,7 +13,7 @@
 !        R. Sander, Max-Planck Institute for Chemistry, Mainz, Germany
 ! 
 ! File                 : gckpp_Parameters.f90
-! Time                 : Tue Feb  4 17:42:21 2020
+! Time                 : Tue Feb  4 17:46:37 2020
 ! Working directory    : /net/home_stu/cdholmes/gc-12.6.1/KPP/Standard
 ! Equation file        : gckpp.kpp
 ! Output root filename : gckpp
@@ -50,7 +50,7 @@ MODULE gckpp_Parameters
 ! NONZERO - Number of nonzero entries in Jacobian
   INTEGER, PARAMETER :: NONZERO = 2798 
 ! LU_NONZERO - Number of nonzero entries in LU factoriz. of Jacobian
-  INTEGER, PARAMETER :: LU_NONZERO = 3499 
+  INTEGER, PARAMETER :: LU_NONZERO = 3502 
 ! CNVAR - (NVAR+1) Number of elements in compressed row format
   INTEGER, PARAMETER :: CNVAR = 239 
 ! NLOOKAT - Number of species to look at
@@ -221,12 +221,12 @@ MODULE gckpp_Parameters
   INTEGER, PARAMETER :: ind_GAOO = 156 
   INTEGER, PARAMETER :: ind_CH3CHOO = 157 
   INTEGER, PARAMETER :: ind_IEPOXOO = 158 
-  INTEGER, PARAMETER :: ind_H = 159 
-  INTEGER, PARAMETER :: ind_MGLYOO = 160 
-  INTEGER, PARAMETER :: ind_MVKN = 161 
-  INTEGER, PARAMETER :: ind_PRN1 = 162 
-  INTEGER, PARAMETER :: ind_MONITU = 163 
-  INTEGER, PARAMETER :: ind_MGLOO = 164 
+  INTEGER, PARAMETER :: ind_MGLYOO = 159 
+  INTEGER, PARAMETER :: ind_MVKN = 160 
+  INTEGER, PARAMETER :: ind_PRN1 = 161 
+  INTEGER, PARAMETER :: ind_MONITU = 162 
+  INTEGER, PARAMETER :: ind_MGLOO = 163 
+  INTEGER, PARAMETER :: ind_H = 164 
   INTEGER, PARAMETER :: ind_A3O2 = 165 
   INTEGER, PARAMETER :: ind_PROPNN = 166 
   INTEGER, PARAMETER :: ind_ISNOOA = 167 
@@ -263,19 +263,19 @@ MODULE gckpp_Parameters
   INTEGER, PARAMETER :: ind_CH2OO = 198 
   INTEGER, PARAMETER :: ind_ISN1 = 199 
   INTEGER, PARAMETER :: ind_ClNO3 = 200 
-  INTEGER, PARAMETER :: ind_H2 = 201 
+  INTEGER, PARAMETER :: ind_GLYC = 201 
   INTEGER, PARAMETER :: ind_MGLY = 202 
   INTEGER, PARAMETER :: ind_ACET = 203 
   INTEGER, PARAMETER :: ind_HC5 = 204 
-  INTEGER, PARAMETER :: ind_GLYC = 205 
+  INTEGER, PARAMETER :: ind_H2 = 205 
   INTEGER, PARAMETER :: ind_ETO2 = 206 
   INTEGER, PARAMETER :: ind_RIO2 = 207 
   INTEGER, PARAMETER :: ind_MRO2 = 208 
   INTEGER, PARAMETER :: ind_BrO = 209 
-  INTEGER, PARAMETER :: ind_INO2 = 210 
-  INTEGER, PARAMETER :: ind_R4O2 = 211 
-  INTEGER, PARAMETER :: ind_HAC = 212 
-  INTEGER, PARAMETER :: ind_R4N2 = 213 
+  INTEGER, PARAMETER :: ind_R4O2 = 210 
+  INTEGER, PARAMETER :: ind_HAC = 211 
+  INTEGER, PARAMETER :: ind_R4N2 = 212 
+  INTEGER, PARAMETER :: ind_INO2 = 213 
   INTEGER, PARAMETER :: ind_PRPE = 214 
   INTEGER, PARAMETER :: ind_RCHO = 215 
   INTEGER, PARAMETER :: ind_MEK = 216 
@@ -289,17 +289,17 @@ MODULE gckpp_Parameters
   INTEGER, PARAMETER :: ind_MO2 = 224 
   INTEGER, PARAMETER :: ind_Br = 225 
   INTEGER, PARAMETER :: ind_O1D = 226 
-  INTEGER, PARAMETER :: ind_NO = 227 
+  INTEGER, PARAMETER :: ind_NO2 = 227 
   INTEGER, PARAMETER :: ind_H2O = 228 
   INTEGER, PARAMETER :: ind_O3 = 229 
   INTEGER, PARAMETER :: ind_NO3 = 230 
-  INTEGER, PARAMETER :: ind_HBr = 231 
+  INTEGER, PARAMETER :: ind_HO2 = 231 
   INTEGER, PARAMETER :: ind_ClO = 232 
   INTEGER, PARAMETER :: ind_HCl = 233 
-  INTEGER, PARAMETER :: ind_HO2 = 234 
-  INTEGER, PARAMETER :: ind_OH = 235 
+  INTEGER, PARAMETER :: ind_OH = 234 
+  INTEGER, PARAMETER :: ind_HBr = 235 
   INTEGER, PARAMETER :: ind_O = 236 
-  INTEGER, PARAMETER :: ind_NO2 = 237 
+  INTEGER, PARAMETER :: ind_NO = 237 
   INTEGER, PARAMETER :: ind_Cl = 238 
 
 ! Index declaration for fixed species in C
