@@ -414,6 +414,15 @@ CONTAINS
     k  = ( k0 * NUMDEN * 0.2095e0_dp ) / ( 1.0_dp + k1 * 0.2095e0_dp )
   END FUNCTION GC_DMSOH_acac
 
+  FUNCTION GC_HPMTF_ac( a0, c0, a1, c1) result( k )
+    ! Reaction rate for 
+    !   DMSO2 = HPMTF
+    REAL(dp), INTENT(IN) :: a0, c0, a1, c1
+    REAL(dp)             :: k
+    !
+    k = a0 * EXP( c0 / TEMP ) * EXP( c1 / TEMP**3 )
+  END FUNCTION GC_HPMTF_ac
+
   FUNCTION GC_GLYXNO3_ac( a0, c0 ) RESULT( k )
     ! Reaction rate for:
     !    GLYX + NO3 = HNO3 + HO2 + 2CO
@@ -3056,6 +3065,64 @@ CONTAINS
     ! Uptake of NO3 in cloud (liquid and ice branches)
     k = k + CloudHet( H, SR_MW(ind_NO3), 0.002_dp, 0.001_dp, 1.0_dp, 1.0_dp )
   END FUNCTION NO3uptk1stOrdAndCloud
+
+  FUNCTION HPMTFuptkAer( H ) result( k )
+    !
+    ! Computes reaction rate [1/s] for 1st-order uptake of HPMTF
+    !
+    TYPE(HetState), INTENT(IN) :: H              ! Hetchem State
+    REAL(dp)                   :: k              ! rxn rate [1/s]
+    REAL(dp)                   :: gamma, srMw    ! local vars
+    !
+    k    = 0.0_dp
+    srMw = SR_MW(ind_HPMTF)
+    gamma = 0.01_dp
+    !
+    ! Uptake by mineral dust bins 1-7
+    k = k + Ars_L1k( H%xArea(DU1), H%xRadi(DU1), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(DU2), H%xRadi(DU2), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(DU3), H%xRadi(DU3), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(DU4), H%xRadi(DU4), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(DU5), H%xRadi(DU5), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(DU6), H%xRadi(DU6), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(DU7), H%xRadi(DU7), gamma, srMw )
+    !
+    ! Uptake by black carbon
+    k = k + Ars_L1k( H%xArea(BKC), H%xRadi(BKC), gamma, srMw )
+    !
+    ! Uptake by organic carbon
+    k = k + Ars_L1k( H%xArea(ORC), H%xRadi(ORC), gamma, srMw )
+    !
+    ! Uptake by sulfate-nitrate-ammonium
+    k = k + Ars_L1k( H%xArea(SUL), H%xRadi(SUL), gamma, srMw )
+    !
+    ! Uptake by sea salt
+    k = k + Ars_L1k( H%xArea(SSA), H%xRadi(SSA), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(SSC), H%xRadi(SSC), gamma, srMw )
+    !
+    ! Uptake by stratospheric sulfate liquid aerosol
+    ! and by irregular ice cloud
+    k = k + Ars_L1k( H%xArea(SLA), H%xRadi(SLA), gamma, srMw )
+    k = k + Ars_L1k( H%xArea(IIC), H%xRadi(IIC), gamma, srMw )
+    !*******
+    ! **** The functional form of uptake on stratospheric sulfate is strange. More typically gamma * Area * speed / 4
+  END FUNCTION HPMTFuptkAer
+
+  FUNCTION HPMTFuptkCld( H ) result( k )
+    !
+    ! Computes reaction rate [1/s] for 1st-order uptake of HPMTF in clouds
+    !
+    TYPE(HetState), INTENT(IN) :: H              ! Hetchem State
+    REAL(dp)                   :: k              ! rxn rate [1/s]
+    REAL(dp)                   :: gamma, srMw    ! local vars
+    !
+    k    = 0.0_dp
+    srMw = SR_MW(ind_HPMTF)
+    gamma = 0.01_dp
+    !
+    ! Cloud uptake
+    k = k + CloudHet( H, SR_MW(ind_HPMTF), gamma, gamma, 1.0_dp, 1.0_dp )
+  END FUNCTION HPMTFuptkCld
 
   FUNCTION NO3hypsisClonSALA( H ) RESULT( k )
     !
